@@ -1,0 +1,28 @@
+---
+- block:
+  - name: create user group
+    group: name="{{database_group}}" state=present
+
+  - name: create user
+    user: name="{{database_user}}" group="{{database_group}}"
+
+  - name: create folder for scripts
+    file: path="{{database_scripts_path_remote}}" state=directory owner="{{database_user}}" group="{{database_group}}" mode=0755
+
+  - name: process template for database creation
+    template: src=init.sql.j2 dest="{{database_scripts_path_remote}}/init.sql" owner="{{database_user}}" group="{{database_group}}" mode=0755
+
+  - name: process template for database filling
+    template: src=usda.sql.j2 dest="{{database_scripts_path_remote}}/usda.sql" owner="{{database_user}}" group="{{database_group}}" mode=0755
+  become: true
+
+- name: create database
+  become_user: "{{ database_user }}"
+  shell: "psql --file={{database_scripts_path_remote}}/init.sql --dbname={{ database_name }}"
+
+- name: create tables and insert data
+  become_user: "{{ database_user }}"
+  shell: "psql --file={{database_scripts_path_remote}}/usda.sql --dbname={{ database_name }}"
+
+
+

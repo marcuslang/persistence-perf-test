@@ -1,0 +1,17 @@
+---
+- hosts: postgresql
+  become: True
+  vars_files:
+      - ./vars_postgresql.yml
+  pre_tasks:
+    - name: Update apt
+      become: yes
+      apt:
+        cache_valid_time: 1800
+        update_cache: yes
+      tags:
+        - build
+  roles:
+  - role: postgresql
+    download_directory: "~/"
+  - role: database_init

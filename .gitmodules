@@ -1,0 +1,3 @@
+[submodule "integration/database/ansible/roles/postgresql"]
+	path = integration/database/ansible/roles/postgresql
+	url = https://github.com/ANXS/postgresql.git

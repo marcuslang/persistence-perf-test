@@ -1,0 +1,4 @@
+drop database if exists {{database_name}};
+drop role if exists {{database_user}};
+create role {{database_user}} superuser;
+create database {{database_name}} with owner = {{database_user}};

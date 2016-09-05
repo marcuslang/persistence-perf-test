@@ -1,0 +1,5 @@
+database_scripts: /vagrant/ansible/roles/database-init/files
+database_scripts_path_remote: /tmp/database
+database_user: vagrant
+database_name: testdb
+database_group: vagrant
