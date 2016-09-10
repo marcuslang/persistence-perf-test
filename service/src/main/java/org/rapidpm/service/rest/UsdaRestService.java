@@ -18,7 +18,7 @@ public class UsdaRestService {
   @GET()
   @Path("getCountOfFoodGroups")
   @Produces("text/plain")
-  public String getCountOfFoodGroups(){
+  public String getCountOfFoodGroups() {
     try {
       return "" + usdaDAO.getCountOfFoodGroups();
     } catch (SQLException e) {

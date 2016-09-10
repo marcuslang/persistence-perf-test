@@ -1,4 +1,4 @@
-package junit.org.rapidpm.service.rest;
+package integration.org.rapidpm.service.rest;
 
 import org.junit.After;
 import org.junit.Assert;

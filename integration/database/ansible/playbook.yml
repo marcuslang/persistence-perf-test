@@ -3,6 +3,7 @@
   become: True
   vars_files:
       - ./vars_postgresql.yml
+      - ./vars_database_init.yml
   pre_tasks:
     - name: Update apt
       become: yes

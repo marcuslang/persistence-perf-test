@@ -1,4 +1,4 @@
-package junit.org.rapidpm.service.persistence;
+package integration.org.rapidpm.service.persistence;
 
 import org.junit.Before;
 import org.junit.Test;

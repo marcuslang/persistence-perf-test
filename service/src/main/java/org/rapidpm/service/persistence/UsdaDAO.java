@@ -14,18 +14,18 @@ public class UsdaDAO {
   private HikariDataSource dataSource;
 
   @PostConstruct
-  private void init(){
+  private void init() {
     HikariConfig config = new HikariConfig();
     config.setJdbcUrl("jdbc:postgresql://10.1.1.200:5432/testdb");
-    config.setUsername("vagrant");
-    config.setPassword("vagrant");
+    config.setUsername("dbuser");
+    config.setPassword("dbuser");
     dataSource = new HikariDataSource(config);
   }
 
   public Connection getConnection() throws SQLException {
     return dataSource.getConnection();
   }
-  
+
   public int getCountOfFoodGroups() throws SQLException {
     final ResultSet resultSet = executeStatement("select count(*) from fd_group");
     resultSet.next();
@@ -39,6 +39,6 @@ public class UsdaDAO {
     statement.execute(sql);
     return statement.getResultSet();
   }
-  
+
 
 }

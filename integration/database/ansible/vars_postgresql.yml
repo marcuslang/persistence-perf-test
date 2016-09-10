@@ -2,14 +2,14 @@ postgresql_version: 9.5
 
 postgresql_databases:
   - name: testdb
-    owner: vagrant
+    owner: dbuser
 
 postgresql_users:
-  - name: vagrant
-    pass: vagrant
+  - name: dbuser
+    pass: dbuser
 
 postgresql_user_privileges:
-  - name: vagrant
+  - name: dbuser
     db: testdb
 
 postgresql_pg_hba_default:
