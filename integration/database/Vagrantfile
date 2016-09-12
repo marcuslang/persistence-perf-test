@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.provision "ansible_local" do |prov|
+    prov.verbose = "vvv"
     prov.install = true
     prov.playbook = "/vagrant/ansible/playbook.yml"
     config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
