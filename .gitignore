@@ -131,3 +131,5 @@ local.properties
 hs_err_pid*
 
 .idea/
+integration/database/ansible/playbook.retry
+/service/persistence-perf-test-service.iml
